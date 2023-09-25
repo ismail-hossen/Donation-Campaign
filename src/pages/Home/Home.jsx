@@ -1,7 +1,15 @@
+import Banner from "../../components/Header/Banner";
+import ServiceCard from "../../components/Services/ServiceCard";
+
 const Home = () => {
   return (
     <div>
-      <h1>This is Home page</h1>
+      <Banner></Banner>
+      <div>
+        <div>
+          <ServiceCard></ServiceCard>
+        </div>
+      </div>
     </div>
   );
 };
