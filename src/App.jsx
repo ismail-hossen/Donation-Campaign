@@ -1,5 +1,7 @@
+import MainLayout from "./layout/MainLayout";
+
 function App() {
-  return <h1>ismail</h1>;
+  return <MainLayout></MainLayout>;
 }
 
 export default App;
