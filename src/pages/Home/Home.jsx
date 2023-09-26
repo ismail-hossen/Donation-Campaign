@@ -12,14 +12,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Banner></Banner>
-      <div className="grid grid-cols-4 gap-4 my-4">
-        {allData?.map((data) => (
-          <ServiceCard key={data.id} data={data}></ServiceCard>
-        ))}
+      <div>
+        <div className="grid grid-cols-4 gap-4 my-4">
+          {allData?.map((data) => (
+            <ServiceCard key={data.id} data={data}></ServiceCard>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
