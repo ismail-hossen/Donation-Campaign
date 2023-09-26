@@ -8,6 +8,8 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DonationDetails = () => {
   const { id } = useParams();
@@ -18,6 +20,25 @@ const DonationDetails = () => {
     setData(findDataById);
   }, [id]);
   const { image, title, description, price, textColor } = data || {};
+
+  const donationHandler = () => {
+    const storedData = JSON.parse(localStorage.getItem("donations"));
+    if (storedData) {
+      localStorage.setItem("donations", JSON.stringify([...storedData, data]));
+    } else {
+      localStorage.setItem("donations", JSON.stringify([data]));
+    }
+    toast.success("You have successfully donated!", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   return (
     <Card className="w-full overflow-hidden shadow-none rounded-md mt-16 mb-24">
@@ -30,14 +51,16 @@ const DonationDetails = () => {
         <img src={image} className="w-full rounded-md" alt={title} />
         <div
           color="transparent"
-          className="absolute bottom-0 bg-opacity-50 bg-black w-full h-28 rounded-b-md flex items-center pl-8"
+          className="absolute bottom-0 bg-opacity-40 bg-black w-full h-28 rounded-b-md flex items-center pl-8"
         >
           <Button
+            onClick={donationHandler}
             style={{ backgroundColor: textColor }}
             className="rounded-sm capitalize text-xl"
           >
             Donate ${price}
           </Button>
+          <ToastContainer />
         </div>
       </CardHeader>
 
