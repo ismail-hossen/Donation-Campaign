@@ -9,7 +9,7 @@ const myCreatedRoutes = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
-      { path: "/", element: <Home></Home> },
+      { path: "/", element: <Home></Home>, loader: () => fetch("data.json") },
       { path: "/donation", element: <Donation></Donation> },
       { path: "/statistics", element: <Statistics></Statistics> },
     ],

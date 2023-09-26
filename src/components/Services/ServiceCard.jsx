@@ -4,30 +4,33 @@ import {
   CardHeader,
   Typography,
 } from "@material-tailwind/react";
+import PropTypes from "prop-types";
 
-const ServiceCard = () => {
+const ServiceCard = ({ data }) => {
+  const { title, category, image, cardBg, textColor, categoryBg } = data || {};
   return (
-    <Card className="max-w-[24rem] overflow-hidden shadow-none bg-[#0051ff31]">
+    <Card
+      style={{ backgroundColor: cardBg }}
+      className="overflow-hidden shadow-none"
+    >
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
         className="m-0 rounded-none"
       >
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-          alt="ui/ux review check"
-        />
+        <img src={image} className="w-full" alt={title} />
       </CardHeader>
       <CardBody>
         <Typography
-          className="bg-[#0051ff4d] text-[#0052ff] inline py-1 px-2 rounded-md"
+          style={{ backgroundColor: categoryBg, color: textColor }}
+          className="inline py-1 px-2 rounded-md"
           variant="h5"
         >
-          Health
+          {category}
         </Typography>
-        <Typography variant="h4" className="text-[#0052FF] mt-1">
-          UI/UX Review Check
+        <Typography variant="h4" className="mt-1" style={{ color: textColor }}>
+          {title}
         </Typography>
       </CardBody>
     </Card>
@@ -35,3 +38,7 @@ const ServiceCard = () => {
 };
 
 export default ServiceCard;
+
+ServiceCard.propTypes = {
+  data: PropTypes.object,
+};
