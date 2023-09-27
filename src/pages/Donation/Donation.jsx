@@ -11,7 +11,7 @@ const Donation = () => {
   }, []);
   return (
     <div className="my-16">
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {donations ? (
           seeAll ? (
             donations?.map((donation, index) => (

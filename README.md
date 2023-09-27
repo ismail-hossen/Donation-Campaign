@@ -1,8 +1,7 @@
-# React + Vite
+# Here i explain 3 Project features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. The project i created for giving donations. In home page have multiple donations options for donating multiple reasons. If we need to donate then we can see donation details page by clicking a donation card from home page. In this details page we can see a button for donating and we can donate by clicking the button from this details page.
 
-Currently, two official plugins are available:
+## 2. If we clicking the donate button for donating from donation details page the donated items will stored in local storage for seeing all donated items later in donation page. In donation page you can see first 4 donated items and a see all button. If you have more than 4 donations then you can see all donated items by clicking the button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 3. In this project have a search bar in home page for searching by category from all donations.

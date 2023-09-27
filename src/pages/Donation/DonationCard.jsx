@@ -6,9 +6,10 @@ import {
   Button,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const DonationCard = ({ donation }) => {
-  const { image, category, title, price, cardBg, textColor, categoryBg } =
+  const { image, category, title, price, cardBg, textColor, categoryBg, id } =
     donation || {};
   return (
     <Card style={{ backgroundColor: cardBg }} className="flex-row shadow-none">
@@ -40,13 +41,15 @@ const DonationCard = ({ donation }) => {
         >
           ${price}
         </Typography>
-        <Button
-          variant="text"
-          style={{ backgroundColor: textColor }}
-          className="capitalize text-white"
-        >
-          View Details
-        </Button>
+        <Link to={`/donation-details/${id}`}>
+          <Button
+            variant="text"
+            style={{ backgroundColor: textColor }}
+            className="capitalize text-white"
+          >
+            View Details
+          </Button>
+        </Link>
       </CardBody>
     </Card>
   );

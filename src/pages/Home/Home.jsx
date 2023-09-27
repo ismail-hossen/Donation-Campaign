@@ -27,7 +27,7 @@ const Home = () => {
     <>
       <Banner searchBtnHandler={searchBtnHandler}></Banner>
       <div>
-        <div className="grid grid-cols-4 gap-4 my-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-10 md:my-16 lg:my-24 ">
           {searchedData.length == 0
             ? "No Data Found!"
             : searchedData?.map((data) => (
