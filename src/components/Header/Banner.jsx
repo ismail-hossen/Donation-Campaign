@@ -5,12 +5,16 @@ import {
   Button,
   Input,
 } from "@material-tailwind/react";
+import { useRef } from "react";
+import PropTypes from "prop-types";
 
-const Banner = () => {
+const Banner = ({ searchBtnHandler }) => {
+  const ref = useRef(null);
+
   return (
     <Card
       shadow={false}
-      className="relative grid h-[40rem] w-full items-end justify-center overflow-hidden text-center rounded-none"
+      className="relative grid h-[30rem] w-full items-end justify-center overflow-hidden text-center rounded-none"
     >
       <CardHeader
         floated={false}
@@ -27,9 +31,10 @@ const Banner = () => {
           </Typography>
           <div className="relative flex w-full max-w-[24rem]">
             <Input
-              type="email"
+              type="text"
               label="Search here..."
               className="pr-20"
+              ref={ref}
               containerProps={{
                 className: "min-w-0",
               }}
@@ -37,6 +42,7 @@ const Banner = () => {
 
             <Button
               size="sm"
+              onClick={() => searchBtnHandler(ref.current.children[0].value)}
               className="!absolute bg-red-600 right-1 top-1 rounded"
             >
               Search
@@ -49,3 +55,7 @@ const Banner = () => {
 };
 
 export default Banner;
+
+Banner.propTypes = {
+  searchBtnHandler: PropTypes.func,
+};
