@@ -23,10 +23,6 @@ const Home = () => {
     setSearchedData(filtered);
   };
 
-  console.log("====================================");
-  console.log(searchedData);
-  console.log("====================================");
-
   return (
     <>
       <Banner searchBtnHandler={searchBtnHandler}></Banner>
